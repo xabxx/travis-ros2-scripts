@@ -1,4 +1,5 @@
 #!/bin/bash
+export CODECOV_TOKEN="7972703a-8e90-4e17-9830-6f4f8fe9288e"
 
 # ROS2 Bouncy Build
 docker pull ros:bouncy-ros-core
@@ -11,6 +12,7 @@ docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && 
 docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && cd /ros2_ws/ && colcon build --symlink-install'
 docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && cd /ros2_ws/ && colcon test'
 docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && cd /ros2_ws/ && colcon test-result'
+#docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && bash <(curl -s https://codecov.io/bash)'
 
 # ROS2 Crystal Build
 docker pull ros:crystal-ros-core
@@ -23,3 +25,4 @@ docker exec crystal-container /bin/bash -c 'source /opt/ros/crystal/setup.bash &
 docker exec crystal-container /bin/bash -c 'source /opt/ros/crystal/setup.bash && cd /ros2_ws/ && colcon build --symlink-install'
 docker exec crystal-container /bin/bash -c 'source /opt/ros/crystal/setup.bash && cd /ros2_ws/ && colcon test'
 docker exec crystal-container /bin/bash -c 'source /opt/ros/crystal/setup.bash && cd /ros2_ws/ && colcon test-result'
+#docker exec bouncy-container /bin/bash -c 'source /opt/ros/bouncy/setup.bash && bash <(curl -s https://codecov.io/bash)'
